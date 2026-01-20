@@ -16,7 +16,7 @@
 
   <script>
     // ★1) 転送先YouTube URL（動画ごとに変更）
-    const YT  = "https://www.youtube.com/live/izgYtax8qfY";
+    const YT  = "https://youtube.com/live/izgYtax8qfY";
 
     // ★2) 配布元ラベル（配布先ごとに変更）
     const SRC = "jamt260123";
@@ -45,7 +45,7 @@
   <p>YouTubeへ移動します…</p>
   <p>自動で移動しない場合は
     <!-- ★3) ここも同じYouTube URLに変更 -->
-    <a href="https://youtube.com/live/9_DloOZ796o" rel="noopener">こちら</a>
+    <a href="https://youtube.com/live/izgYtax8qfY" rel="noopener">こちら</a>
   </p>
 </body>
 </html>
