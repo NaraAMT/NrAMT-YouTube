@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Redirecting...</title>
+
+  <!-- GA4 Measurement ID を設定 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-163C6T07KG"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-163C6T07KG');
+  </script>
+
+  <script>
+    // ★1) 転送先YouTube URL（動画ごとに変更）
+    const YT  = "https://www.youtube.com/live/izgYtax8qfY";
+
+    // ★2) 配布元ラベル（配布先ごとに変更）
+    const SRC = "jamt260123";
+
+    window.addEventListener("load", () => {
+      // 送信が間に合わない場合の保険（環境によって調整）
+      const fallback = setTimeout(() => location.replace(YT), 2000);
+
+      try {
+        gtag('event', 'redirect_to_youtube', {
+          event_category: 'outbound',
+          event_label: SRC,
+          transport_type: 'beacon',
+          event_callback: () => {
+            clearTimeout(fallback);
+            location.replace(YT);
+          }
+        });
+      } catch (e) {
+        location.replace(YT);
+      }
+    });
+  </script>
+</head>
+<body>
+  <p>YouTubeへ移動します…</p>
+  <p>自動で移動しない場合は
+    <!-- ★3) ここも同じYouTube URLに変更 -->
+    <a href="https://youtube.com/live/9_DloOZ796o" rel="noopener">こちら</a>
+  </p>
+</body>
+</html>
